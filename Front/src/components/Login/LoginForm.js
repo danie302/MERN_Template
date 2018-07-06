@@ -43,7 +43,7 @@ componentWillReceiveProps(nextProps) {
   render(){
     if (this.state.LogSuccess === true) {
         console.log("Redirecting");
-        return(<Redirect to ="/userwindow"/>);
+        return(<Redirect to ="/"/>);
     } else {
       return(
       <div>

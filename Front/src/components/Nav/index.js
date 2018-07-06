@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 // Assets
+import './navbar.css'
 import logo from './favicon.ico';
 
 class Navbar extends Component {
@@ -31,8 +32,8 @@ class Navbar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
-                <Link to ="/" className="nav-link" onClick={ this.onSubmit } >Logout <span className="sr-only">(current)</span></Link>
+              <li className="nav-item list-bg bg-warning">
+                <Link to ="/" className="nav-link" onClick={ this.onSubmit } >Logout </Link>
               </li>
             </ul>
 
@@ -41,21 +42,21 @@ class Navbar extends Component {
       );
     } else {
       return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-primary">
 
           <Link to="/" className="navbar-brand" >
-            <img src={ logo } className="img-fluid" width="30vw" height="30vw"  alt="Logo" />
+            <img src={ logo } className="img-fluid" width="30vw" height="30vh"  alt="Logo" />
           </Link>
 
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
-                <Link to ="/login" className="nav-link" >Login <span className="sr-only">(current)</span></Link>
+              <li className="nav-item list-bg bg-warning" >
+                <Link to ="/login" className="nav-link" >Login</Link>
               </li>
-              <li className="nav-item active">
+              <li className="nav-item list-bg bg-warning">
                 <Link to="/register" className="nav-link" >Register</Link>
               </li>
             </ul>
