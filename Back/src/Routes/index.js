@@ -4,7 +4,10 @@ const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 
+// Models
 const User = require('../Model/User');
+const Task = require('../Model/Tasks');
+
 const config = require('../Config/database');
 
 router.post('/register', (req, res, next) => {
@@ -70,12 +73,28 @@ router.post('/profile', passport.authenticate('jwt', { session: false }), (req, 
   res.json({user: req.user});
 });
 
-router.get('/addTask', passport.authenticate('jwt', { session: false }), (req, res) => {
-  User.addTask(req.body.task, req.user._id, (err, isUpdate) => {
-    if(err) throw err;
-    if(isUpdate){
-      return res.json({success: true, msg: "Tweet Post"});
+router.post('/addTask', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Tasks.addTask(req.body.task, (err, task) => {
+    if (err) {
+      res.json({
+        success: false,
+        msg: "Error creating the task",
+      });
     }
+    if (user) {
+      res.json({
+        success: true,
+        msg: "Task created"
+      });
+    }
+  });
+});
+
+router.post('/findTasks', passport.authenticate('jwt', { session: false }), (req, res) => {
+  const userId = req.user._id;
+  Tasks.userTasks(userId, (err, tasks) => {
+    if(err) throw err;
+    res.json(tasks);
   });
 });
 

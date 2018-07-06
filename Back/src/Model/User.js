@@ -8,11 +8,6 @@ const UserSchema = new Schema({
   username: String,
   email: String,
   password: String,
-  task: [{
-    title: String,
-    body: String,
-    complete: Boolean
-  }]
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);
@@ -41,12 +36,5 @@ module.exports.checkPassword = (TryPassword, hash, callback) => {
   bcrypt.compare(TryPassword, hash, (err, isMatch) => {
     if(err) throw err;
     callback(err, isMatch);
-  });
-}
-
-module.exports.addTask = (newTask, NewUserId, callback) =>{
-  User.updateOne(newUserId, { $push: newTask }, (err, isUpdate) => {
-    if(err) throw err;
-    callback(null, isUpdate);
   });
 }
