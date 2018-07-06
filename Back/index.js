@@ -12,6 +12,7 @@ const app = express();
 const config = require('./src/Config/database');
 app.set('port', process.env.PORT || 8000);
 const port = app.get('port');
+
 // DB Connection
 const db = mongoose.connect(config.database)
 mongoose.connection.on('connected', () => {
