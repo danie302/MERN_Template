@@ -4,6 +4,9 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+// Assets
+import './login.css'
+
 // Actions
 import { validateUser } from '../../actions/userActions';
 
@@ -37,6 +40,7 @@ componentWillReceiveProps(nextProps) {
   if (nextProps.LogSuccess !== this.state.LogSuccess) {
     this.setState({LogSuccess: nextProps.LogSuccess});
     sessionStorage.setItem('Token', nextProps.Token);
+    sessionStorage.setItem('Name', nextProps.name);
   }
 }
 
@@ -48,17 +52,16 @@ componentWillReceiveProps(nextProps) {
       return(
       <div>
         <form>
-          {/* User Input */ }
-          <div>
-            <label>User: </label>
-            <input type="text" name="User" value= { this.state.User } placeholder="User" onChange= {this.onChange}></input>
-          </div>
-          <div>
-            <label>Password: </label>
-            <input type="password" name="Password" value= { this.state.Password } placeholder="Password" onChange= {this.onChange}></input>
-          </div>
-          <div>
-            <button className="btn btn-primary bg-warning" onClick={ this.onSubmit } >Submit</button>
+          <div className="row">
+            <div className="col">
+              <input className="form-box" type="text" name="User" value= { this.state.User } placeholder="User" onChange= {this.onChange}></input>
+            </div>
+            <div className="col">
+              <input className="form-box" type="password" name="Password" value= { this.state.Password } placeholder="Password" onChange= {this.onChange}></input>
+            </div>
+            <div className="col">
+              <button className="btn btn-primary bg-warning form-input" onClick={ this.onSubmit } >Submit</button>
+            </div>
           </div>
         </form>
       </div>
@@ -74,6 +77,7 @@ LoginForm.propTypes = {
 const mapStateToProps = state => ({
   LogSuccess: state.users.LogSuccess,
   Token: state.users.token,
+  name: state.users.name,
 });
 
 export default connect(mapStateToProps, { validateUser })(LoginForm);

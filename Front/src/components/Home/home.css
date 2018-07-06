@@ -1,15 +1,23 @@
 .center-title {
   text-align: center;
-  color: aqua;
   font-weight: bold;
+  font-family: fantasy;
+  font-size: 10vw;
 }
 
 .center {
   text-align: center;
-  color: aqua;
-  font-weight: normal;
+  font-family: fantasy;
+  font-size: 4vw;
 }
 
-.bg-black {
+.box {
+  border-style: solid;
+  border-color: black;
   background-color: black;
+  color: black;
+}
+
+.rad {
+  border-radius: 20px;
 }

@@ -1,0 +1,22 @@
+.title {
+  font-size: 9vw;
+  font-weight: 550;
+  font-family: fantasy;
+  text-align: center;
+}
+
+.form-box {
+  border-radius: 10px;
+  margin: 1vh;
+  font-size: 3.5vw;
+  width: 40vw;
+  font-family: fantasy;
+}
+
+.form-input {
+  border-radius: 10px;
+  margin: 1vh;
+  color: black;
+  font-weight: bold;
+  font-size: 3vw;
+}

@@ -4,6 +4,9 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+// Assets
+import './register.css';
+
 // Actions
 import { registerUser } from '../../actions/userActions';
 
@@ -49,26 +52,24 @@ componentWillReceiveProps(nextProps) {
       return(<Redirect to ="/"/>);
     }else {
       return (
-        <div>
+        <div className="container">
           <form>
-            <div>
-              <label>User: </label>
-              <input type="text" name="User" value= { this.state.User } placeholder="User" onChange= {this.onChange}></input>
-            </div>
-            <div>
-              <label>Email: </label>
-              <input type="email" name="Email" value= { this.state.Email } placeholder="Email" onChange= {this.onChange}></input>
-            </div>
-            <div>
-              <label>Name: </label>
-              <input type="text" name="Name" value= { this.state.Name } placeholder="Name" onChange= {this.onChange}></input>
-            </div>
-            <div>
-              <label>Password: </label>
-              <input type="password" name="Password" value= { this.state.Password } placeholder="Password" onChange= {this.onChange}></input>
-            </div>
-            <div>
-              <button className="btn btn-primary bg-warning" onClick={ this.onSubmit } >Submit</button>
+            <div className="row">
+              <div className="col">
+                <input className="form-box" type="text" name="User" value= { this.state.User } placeholder=" User" onChange= {this.onChange}></input>
+              </div>
+              <div className="col">
+                <input className="form-box" type="email" name="Email" value= { this.state.Email } placeholder=" Email" onChange= {this.onChange}></input>
+              </div>
+              <div className="col">
+                <input className="form-box" type="text" name="Name" value= { this.state.Name } placeholder=" Name" onChange= {this.onChange}></input>
+              </div>
+              <div className="col">
+                <input className="form-box" type="password" name="Password" value= { this.state.Password } placeholder=" Password" onChange= {this.onChange}></input>
+              </div>
+              <div className="col">
+                <button className="btn btn-primary bg-warning form-input" onClick={ this.onSubmit } >Submit</button>
+              </div>
             </div>
           </form>
         </div>
