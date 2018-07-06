@@ -1,0 +1,15 @@
+.center-title {
+  text-align: center;
+  color: aqua;
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+  color: aqua;
+  font-weight: normal;
+}
+
+.bg-black {
+  background-color: black;
+}
